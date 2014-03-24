@@ -1,0 +1,17 @@
+{% extends 'rango/base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% load static %}
+
+{% block body_block %}
+<div class="hero-unit">
+  <h1>About Rango</h1>
+  This is <strong>Rango's about page.</strong></br>
+  
+  You've visited the site on <strong>{{ visits }} occacion(s).</strong><br/>
+
+  Here's a picture of Rango<br/>
+  <img src="{% static "rango.jpg" %}" alt="Rango Photo"/>
+</div>
+{% endblock %}

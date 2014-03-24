@@ -1,0 +1,31 @@
+  <div class="container-fluid">
+    <p>Search for a page.</p>
+    <form class="form-signin span8" id="user_form" method="post" action="">
+      {% csrf_token %}
+      <!-- Display the search form elements here -->
+      <input type="text" size="50" name="query" value="" id="query" />
+      <input class="btn btn-primary" type="submit" name="submit" value="Search"/>
+      <br/>
+    </form>
+  </div>
+
+  <div class="container-fluid"> 
+    {% if result_list %}
+      <!-- Display search results in an ordered list -->
+      <ol>
+        {% for result in result_list %}
+          <li>
+            <strong><a href="{{ result.link }}">{{ result.title }}</a></strong>
+            {% if user.is_authenticated %}
+              <button class="rango-add btn btn-min btn-info" type="button" data-catid={{category.id}} data-title="{{result.title}}" data-url="{{result.link}}">Add</button>
+            {% endif %}
+            <br/>
+            <em>{{ result.summary }}</em>
+          </li>
+        {% endfor %}
+      </ol>
+    {% else %}
+      <br/>
+      <p>No Results were found.</p>    
+    {% endif %}
+  </div>

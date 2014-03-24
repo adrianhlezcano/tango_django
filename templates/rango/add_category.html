@@ -1,0 +1,26 @@
+{% extends 'rango/base.html' %}
+
+{% block title %}Add Category{% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+  <h1>Add a Category</h1>
+  <div class="container">
+  <form class="span6"  id="category_form" method="post" action="/rango/add_category/">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+      {{ hidden }}
+    {% endfor %}
+    
+    {% for field in form.visible_fields %}
+      {{ field.error }}
+      {{ field.help_text }}
+      {{ field }}
+      <br/>
+    {% endfor %}
+    
+    <button class="btn btn-primary" type="submit" name="submit">Create Category</button>
+  </form>
+  </div>
+</div>
+{% endblock %}
