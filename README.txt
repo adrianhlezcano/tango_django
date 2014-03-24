@@ -8,3 +8,4 @@ Main Features:
   > Add a "like(s)" to categories or pages.
 
 This web app is the result of the tutorial: www.tangowithdjango.com
+Published on: http://adrianhlezcano.pythonanywhere.com/
